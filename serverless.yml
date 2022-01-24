@@ -1,0 +1,22 @@
+service: aws-node-project
+
+frameworkVersion: '2 || 3'
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    useDocker: true
+    host: 0.0.0.0
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+
+functions:
+  encrypt:
+    handler: encrypt.encrypt
+  compareHash:
+    handler: compareHash.compareHash
